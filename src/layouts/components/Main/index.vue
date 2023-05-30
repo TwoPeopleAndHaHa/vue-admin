@@ -2,13 +2,14 @@
   <div id="layout_main">
     <el-main>
       <div class="card">
-        <h2 v-for="item in 30" :key="item">svg图标{{ item }}</h2>
+        <RouterView></RouterView>
       </div>
     </el-main>
   </div>
 </template>
 <script setup lang="ts" name="layoutMain">
 import { ref } from "vue";
+import HomeMain from "@/views/home/index.vue";
 const item = {
   date: "2016-05-02",
   name: "Tom",

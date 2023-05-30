@@ -16,6 +16,8 @@ import router from "./routers";
 import "virtual:svg-icons-register";
 // 引入自定义插件 , 并通过 use 使用
 import globalComponent from "@/components/index";
+// 这里要注意把 submenu 注册成全局组件 , 因为是递归使用
+import SubMenu from "@/layouts/components/SubMenu/index.vue";
 
 // 初始样式
 import "@/styles/reset.less";
@@ -26,6 +28,7 @@ const app = createApp(App);
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component);
 }
+app.component("SubMenu", SubMenu);
 
 // 挂在到 vue 实例
 app.use(createPinia()).use(globalComponent);
