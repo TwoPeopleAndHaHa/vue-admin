@@ -76,6 +76,25 @@ export const statisRouters: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: "/todo",
+    redirect: "todo",
+    meta: {
+      isHidden: true
+    },
+    component: () => import("@/layouts/index.vue"),
+    children: [
+      {
+        path: "/todo",
+        name: "todo",
+        meta: {
+          title: "todo",
+          isHidden: false
+        },
+        component: () => import("@/views/todo/index.vue")
+      }
+    ]
+  },
+  {
     path: "/page404",
     name: "page404",
     meta: {
