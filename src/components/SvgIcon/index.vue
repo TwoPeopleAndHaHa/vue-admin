@@ -6,7 +6,6 @@
 
 <script lang="ts" setup>
 // 接受父组件传递过来的参数
-
 defineProps({
   prefix: {
     type: String,

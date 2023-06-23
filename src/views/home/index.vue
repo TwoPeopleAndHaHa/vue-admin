@@ -3,6 +3,6 @@
 </template>
 
 <script setup lang="ts" name="home"></script>
-<style scoped lang="less">
-@import "./home.less";
+<style scoped lang="scss">
+@import "./home.scss";
 </style>

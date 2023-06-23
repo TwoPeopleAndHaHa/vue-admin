@@ -6,7 +6,7 @@
   </div>
 </template>
 <script setup lang="ts" name="layoutMain"></script>
-<style lang="less">
+<style lang="scss">
 #layout_main {
   flex: 1;
   overflow: hidden;

@@ -69,4 +69,8 @@ defineProps({
   }
 });
 </script>
-<style lang="less"></style>
+<style lang="scss" scoped>
+.el-icon {
+  margin-right: 15px !important;
+}
+</style>

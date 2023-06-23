@@ -1,11 +1,13 @@
 <template>
   <div class="todo_wrap flex_cc_c">
     <div class="todo_container">
-      <header class="todo_header">
+      <header class="todo_header flex_cc">
         <div class="all_select">
           <el-checkbox v-model="checkAll" label="all" />
         </div>
-        <div class="input_todo"></div>
+        <div class="input_todo">
+          <el-input v-model="inputval" @keyup.enter="addNew" placeholder="Please input" clearable />
+        </div>
       </header>
       <main class="todo_main">
         <div v-for="(item, index) in todoList" :key="index" class="todo_items flex_cc">
@@ -26,26 +28,29 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed, toValue } from "vue";
 import type { Ref } from "vue";
 interface TodoList {
   id: number;
   text: string;
   isCheck: boolean;
 }
-const todoList: Ref<Array<TodoList>> = ref([
-  { id: 0, text: "测试0", isCheck: true },
-  { id: 1, text: "测试1", isCheck: true },
-  { id: 2, text: "测试2", isCheck: true },
-  { id: 3, text: "测试3", isCheck: true },
-  { id: 4, text: "测试4", isCheck: true },
-  { id: 5, text: "测试5", isCheck: true },
-  { id: 6, text: "测试6", isCheck: true },
-  { id: 7, text: "测试7", isCheck: true }
-]);
+const todoList: Ref<Array<TodoList>> = ref([]);
 
-const checkAll = ref(false);
+// 增加
+let inputval = ref("");
+const addNew = () => {
+  if (!toValue(inputval)) return;
+  let obj = {
+    id: Math.random() * 10,
+    text: toValue(inputval),
+    isCheck: false
+  };
+  todoList.value.push(obj);
+  inputval = ref("");
+};
 
+// 删除
 const handleDele = (val: number) => {
   todoList.value.forEach((item: TodoList, index: number) => {
     if (index === val) {
@@ -53,9 +58,11 @@ const handleDele = (val: number) => {
     }
   });
 };
+
+const checkAll = ref(false);
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 .todo_wrap {
   width: 100%;
   height: 100%;
@@ -80,6 +87,15 @@ const handleDele = (val: number) => {
     .el-checkbox {
       height: 100%;
       width: 100%;
+    }
+  }
+  .input_todo {
+    height: 100%;
+    width: 100%;
+    .el-input {
+      height: 100%;
+      width: 100%;
+      justify-content: space-between;
     }
   }
 }

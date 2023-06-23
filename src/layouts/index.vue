@@ -1,14 +1,26 @@
 <template>
   <el-container class="layout_wrap">
     <!-- 左侧菜单 -->
-    <el-aside width="240px">
+    <el-aside
+      width="240px"
+      :style="{
+        width: globalStore.systemConfig.isCollapse ? '60px' : '240px'
+      }"
+    >
       <div class="aside_logo">
         <div class="logo_wrap">
+          <!-- :style="{ width: globalStore.systemConfig.isCollapse ? '50%' : '14%' }" -->
           <img src="../assets/images/monster.jpg" alt="" />
-          <h1>半斤八两</h1>
+          <h1 v-if="!globalStore.systemConfig.isCollapse">半斤八两</h1>
         </div>
       </div>
-      <el-menu default-active="1" router unique-opened>
+      <el-menu
+        default-active="1"
+        router
+        unique-opened
+        :collapse="globalStore.systemConfig.isCollapse"
+        :collapse-transition="false"
+      >
         <SubMenu :menuList="menuList.menuRoutes"></SubMenu>
       </el-menu>
     </el-aside>
@@ -27,9 +39,11 @@ import Main from "@/layouts/components/Main/index.vue";
 import Footer from "@/layouts/components/Footer/index.vue";
 import useUserStore from "@/stores/modules/user";
 const menuList = useUserStore();
+import { GlobalStore } from "@/stores";
+const globalStore = GlobalStore();
 </script>
 
-<style lang="less">
+<style lang="scss">
 .layout_wrap {
   width: 100%;
   height: 100%;
@@ -38,12 +52,11 @@ const menuList = useUserStore();
   }
   .el-aside {
     height: 100%;
-    background-color: #fff;
+    background-color: var(--el-bg-color);
     border-right: 1px solid #dcdfe6;
     .aside_logo {
       width: 100%;
       height: 60px;
-      // background-color: #000;
       .logo_wrap {
         width: 100%;
         height: 100%;
@@ -53,7 +66,7 @@ const menuList = useUserStore();
         vertical-align: middle;
         img {
           height: 50%;
-          width: 13%;
+          // width: 13%;
           border-radius: 30%;
         }
         h1 {

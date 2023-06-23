@@ -11,11 +11,13 @@ declare namespace Menu {
   interface MetaProps {
     icon: string;
     title: string;
-    // activeMenu?: string;
-    // isLink?: string;
-    isHidden: boolean;
-    // isFull: boolean;
-    // isAffix: boolean;
-    // isKeepAlive: boolean;
+    activeMenu?: string;
+    isLink?: string;
+    isHide: boolean;
+    isFull: boolean;
+    isAffix: boolean;
+    isKeepAlive: boolean;
   }
 }
+
+/* Vite */
