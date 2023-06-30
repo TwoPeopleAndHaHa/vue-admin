@@ -32,7 +32,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       // 为开发服务器配置自定义代理规则
       proxy: {
         "/api": {
-          target: "http://jsonplaceholder.typicode.com",
+          target: "/",
           changeOrigin: true,
           rewrite: path => path.replace(/^\/api/, "")
         }
