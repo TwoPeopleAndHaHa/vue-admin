@@ -76,21 +76,22 @@ export const statisRouters: Array<RouteRecordRaw> = [
     ]
   },
   {
-    path: "/todo",
-    redirect: "todo",
+    path: "/upload",
+    redirect: "upload",
     meta: {
-      isHidden: true
+      isHidden: true,
+      icon: "Tools"
     },
     component: () => import("@/layouts/index.vue"),
     children: [
       {
-        path: "/todo",
-        name: "todo",
+        path: "/upload",
+        name: "upload",
         meta: {
-          title: "todo",
+          title: "上传组件",
           isHidden: false
         },
-        component: () => import("@/views/todo/index.vue")
+        component: () => import("@/views/upload/index.vue")
       }
     ]
   },
