@@ -18,7 +18,7 @@
   </div>
 </template>
 <script setup lang="ts" name="layoutHeader">
-import { GlobalStore } from "@/stores/index";
+import { GlobalStore } from "@/stores/modules/global";
 
 const globalStore = GlobalStore();
 // 折叠菜单

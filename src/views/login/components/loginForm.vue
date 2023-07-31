@@ -51,7 +51,7 @@
 <script lang="ts" setup name="loginForm">
 import { FormInstance, FormRules } from "element-plus";
 import { CircleClose, UserFilled } from "@element-plus/icons-vue";
-import { GlobalStore } from "@/stores";
+import { GlobalStore } from "@/stores/modules/global";
 import { loginApi } from "@/api/modules/login";
 import { Login } from "@/api/interface";
 

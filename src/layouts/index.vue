@@ -39,7 +39,7 @@ import Main from "@/layouts/components/Main/index.vue";
 import Footer from "@/layouts/components/Footer/index.vue";
 import useUserStore from "@/stores/modules/user";
 const menuList = useUserStore();
-import { GlobalStore } from "@/stores";
+import { GlobalStore } from "@/stores/modules/global";
 const globalStore = GlobalStore();
 </script>
 

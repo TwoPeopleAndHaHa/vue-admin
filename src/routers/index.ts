@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { statisRouters } from "./modules/statsRouter";
-import { GlobalStore } from "@/stores";
+import { GlobalStore } from "@/stores/modules/global";
 
 const router = createRouter({
   history: createWebHistory(),

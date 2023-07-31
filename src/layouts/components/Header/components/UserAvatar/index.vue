@@ -22,7 +22,7 @@
 
 <script setup lang="ts" name="user">
 import { ElMessage, ElMessageBox } from "element-plus";
-import { GlobalStore } from "@/stores";
+import { GlobalStore } from "@/stores/modules/global";
 import { logoutApi } from "@/api/modules/login";
 
 const globalStore = GlobalStore();

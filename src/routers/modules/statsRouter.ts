@@ -44,34 +44,57 @@ export const statisRouters: Array<RouteRecordRaw> = [
     component: () => import("@/views/echarts/index.vue")
   },
   {
-    path: "/test",
-    name: "test",
+    path: "/nested",
+    name: "nested",
     meta: {
-      title: "test",
+      title: "嵌套路由",
       isHidden: false,
       icon: "Tools"
     },
     component: () => import("@/layouts/index.vue"),
     children: [
       {
-        path: "/test_1",
-        name: "test_1",
+        path: "/nested_1",
+        name: "nested_1",
+        redirect: "/nested1_1",
         meta: {
-          title: "test_1",
+          title: "nested_1",
           isHidden: false,
           icon: "Tools"
         },
-        component: () => import("@/views/test/test1/index.vue")
+        component: () => import("@/views/nested/nested1/index.vue"),
+        children: [
+          {
+            path: "/nested1_1",
+            name: "nested1_1",
+            meta: {
+              title: "nested1_1",
+              isHidden: false,
+              icon: "Tools"
+            },
+            component: () => import("@/views/nested/nested1/nested1_1/index.vue")
+          },
+          {
+            path: "/nested1_2",
+            name: "nested1_2",
+            meta: {
+              title: "nested1_2",
+              isHidden: false,
+              icon: "Tools"
+            },
+            component: () => import("@/views/nested/nested1/nested1_2/index.vue")
+          }
+        ]
       },
       {
-        path: "/test_2",
-        name: "test_2",
+        path: "/nested_2",
+        name: "nested_2",
         meta: {
-          title: "test_2",
+          title: "nested_2",
           isHidden: false,
           icon: "Tools"
         },
-        component: () => import("@/views/test/test2/index.vue")
+        component: () => import("@/views/nested/nested2/index.vue")
       }
     ]
   },

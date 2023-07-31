@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { Sunny, Moon } from "@element-plus/icons-vue";
-import { GlobalStore } from "@/stores";
+import { GlobalStore } from "@/stores/modules/global";
 import { useTheme } from "@/hooks/useTheme";
 
 const isDark = ref(false);

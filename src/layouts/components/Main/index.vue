@@ -1,5 +1,6 @@
 <template>
   <div id="layout_main">
+    <tabs />
     <el-main>
       <div class="card"><RouterView></RouterView></div>
     </el-main>
